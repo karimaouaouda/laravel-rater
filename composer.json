@@ -1,0 +1,28 @@
+{
+    "name": "karimaouaouda/laravel-rater",
+    "description": "this is a simple implementation to rating system with laravel",
+    "type": "library",
+    "keywords": ["rating", "karimaouaouda"],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Karimaouaouda\\LaravelRater\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel":{
+            "providers" : [
+                "Karimaouaouda\\LaravelRater\\KarimRaterServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Karim Aouaouda",
+            "email": "karimaouaouda.officiel@gmail.com",
+            "role": "Developper"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
