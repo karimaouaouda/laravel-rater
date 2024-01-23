@@ -15,7 +15,7 @@ class RaterController extends BaseController
     }
 
 
-    public function rate($model_type_encoded, $model_id, Request $request): void
+    public function rate($model_type_encoded, $model_id, Request $request)
     {
 
         $request->validate([
@@ -31,6 +31,11 @@ class RaterController extends BaseController
                     ->appendComment($comment)
                     ->apply();
 
+
+        return response()->json([
+            "message" => "rated successfully"
+        ], 200);
+
     }
 
 
@@ -39,6 +44,10 @@ class RaterController extends BaseController
         $model = Rater::parseModel($model_type_encoded, $model_id);
 
         Auth::user()->unrate($model);
+
+        return response()->json([
+            "message" => "unrated successfully"
+        ], 200);
 
     }
 
