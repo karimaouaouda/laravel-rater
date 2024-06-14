@@ -48,6 +48,24 @@ class Rater{
     }
 
 
+    public static function() : void
+    {
+        require_once(__DIR__."/../functions/helpers.php");
+
+        Route::middleware("web")
+        ->group(__DIR__."/../routes/web.php");
+
+
+        $this->loadMigrationsFrom(__DIR__."/../database/migrations/");
+
+        if(!Config::has("rater")){
+            $this->mergeConfigFrom(__DIR__."/../config/rater.php", "rater");
+        }
+
+        $this->assertProperlyConfigured();
+    }
+
+
     /**
      * retrieve all rates from database
      * @return \Illuminate\Support\Collection collection of Ratable models
